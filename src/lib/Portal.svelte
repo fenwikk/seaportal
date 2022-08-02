@@ -2,4 +2,4 @@
 	import Header from './components/Header';
 </script>
 
-<Header baseUrl="" />
+<Header baseUrl="/portal" />

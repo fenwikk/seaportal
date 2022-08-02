@@ -2,19 +2,26 @@
 	import '../../main.css';
 	import Portal from '../../assets/portal.png';
 	import { Navigation, type NavigationElement } from '.';
+	import { browser } from '$app/env';
 
 	export let baseUrl;
 
 	const navigationElements: NavigationElement[] = [
 		{
 			label: 'Home',
-			url: baseUrl + '/'
+			url: baseUrl
 		},
 		{
 			label: 'Settings',
 			url: baseUrl + '/settings'
 		}
 	];
+
+	let startingElementIndex: number = 0;
+	if (browser)
+		startingElementIndex = navigationElements.findIndex(
+			(value) => value.url == location?.pathname || ''
+		);
 </script>
 
 <div class="border-b">
@@ -25,6 +32,6 @@
 			</div>
 		</div>
 
-		<Navigation elements={navigationElements} />
+		<Navigation elements={navigationElements} selectedIndex={startingElementIndex} />
 	</div>
 </div>
