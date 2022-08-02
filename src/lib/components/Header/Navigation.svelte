@@ -20,18 +20,17 @@
 >
 	<div
 		class="absolute bg-gray-200 rounded -z-10 {hoveredIndex == -1 ? 'hidden' : 'block'}"
-		style="left: {(elements[hoveredIndex]?.element?.offsetLeft || 0) - 12}px; width: {elements[
-			hoveredIndex
-		]?.element?.clientWidth
+		style="left: {(elements[hoveredIndex]?.element?.offsetLeft || 0) - 12}px;
+			width: {elements[hoveredIndex]?.element?.clientWidth
 			? (elements[hoveredIndex]?.element?.clientWidth || 0) + 24
-			: 0}px; height: {elements[hoveredIndex]?.element?.clientHeight ||
-			0}px; transition-duration: {first ? '0' : '200'}ms;"
+			: 0}px;
+			height: {elements[hoveredIndex]?.element?.clientHeight || 0}px;
+			transition-duration: {first ? '0' : '200'}ms;"
 	/>
 	<div
 		class="absolute bg-black h-[3px] bottom-0 duration-200"
-		style="left: {elements[selectedIndex]?.element?.offsetLeft || 0}px; width: {elements[
-			selectedIndex
-		]?.element?.clientWidth || 0}px;"
+		style="left: {elements[selectedIndex]?.element?.offsetLeft || 0}px;
+			width: {elements[selectedIndex]?.element?.clientWidth || 0}px;"
 	/>
 
 	{#each elements as element, i}
