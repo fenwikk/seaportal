@@ -3,6 +3,6 @@
     export { className as class }
 </script>
 
-<div class="text-sm cursor-pointer {className}" on:click>
+<div class="button link-button {className}" on:click>
     <slot/>
 </div>

@@ -27,26 +27,24 @@ import LinkButton from '../Buttons/LinkButton.svelte';
 		);
 </script>
 
-<div class="border-b">
+<div class="header-container">
 	<div class="container">
-		<div class="py-4 flex items-center justify-between">
-			<div class="flex items-center">
-				<img src={Portal} class="w-12 h-12 mt-1" alt="Portal Logo" />
+		<div class="header">
+			<div>
+				<img src={Portal} class="logo" alt="Seaportal Logo" />
 
-				<div class="mx-5">
-                    <div class="w-[2px] h-8 rotate-12 rounded-full bg-gray-300" />
-                </div>
+				<div class="divider"><div /></div>
 
-				<div class="text-xl">
+				<div class="client-name">
 					Client Name Ltd.
 				</div>
 			</div>
 			
-			<div class="flex items-center">
-				<OutlinedButton class="mr-2">Feedback</OutlinedButton>
-				<LinkButton class="mr-4">Changelog</LinkButton>
+			<div>
+				<OutlinedButton>Feedback</OutlinedButton>
+				<LinkButton>Changelog</LinkButton>
 
-				<img src={Avatar} class="w-8 h-8 rounded-full" alt="Avatar" />
+				<img src={Avatar} class="avatar" alt="Avatar" />
 			</div>
 		</div>
 
