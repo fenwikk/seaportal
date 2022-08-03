@@ -17,11 +17,11 @@
 /* <Header> */
 
 .header-container {
-	@apply border-b;
+	@apply border-b border-gray-300;
 }
 
 .header {
-	@apply py-4 flex items-center justify-between;
+	@apply py-2 flex items-center justify-between;
 }
 
 .header > div {
@@ -29,7 +29,7 @@
 }
 
 .header .logo {
-	@apply w-12 h-12 mt-1;
+	@apply h-10 mt-1;
 }
 
 .header .divider {
@@ -37,11 +37,11 @@
 }
 
 .header .divider > div {
-	@apply w-[2px] h-8 rotate-12 rounded-full bg-gray-300;
+	@apply w-[2px] h-6 rotate-12 rounded-full bg-gray-300;
 }
 
 .client-name {
-	@apply text-xl;
+	@apply text-black;
 }
 
 .header div:last-child > .button {
@@ -61,15 +61,15 @@
 }
 
 .navigation .hover-element {
-	@apply absolute bg-gray-200 rounded -z-10;
+	@apply absolute bg-gray-100 rounded -z-10;
 }
 
 .navigation .select-element {
-	@apply absolute bg-black h-[3px] bottom-0 duration-200;
+	@apply absolute bg-gray-700 h-[2px] bottom-0 duration-200;
 }
 
 .navigation > li {
-	@apply mx-3;
+	@apply mx-3 text-sm text-gray-700 hover:text-black duration-200;
 }
 
 .navigation > li > div {
