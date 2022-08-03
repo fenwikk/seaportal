@@ -45,7 +45,7 @@
 	/>
 
 	{#each elements as element, i}
-		<li>
+		<li class={i == $currentIndex ? "selected" : ""}>
 			<div
 				bind:this={elements[i].element}
 				on:mouseenter={() => {

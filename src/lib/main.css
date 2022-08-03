@@ -72,6 +72,10 @@
 	@apply mx-3 text-sm text-gray-700 hover:text-black duration-200;
 }
 
+.navigation > li.selected {
+	@apply text-black;
+}
+
 .navigation > li > div {
 	@apply py-1 cursor-pointer;
 }
