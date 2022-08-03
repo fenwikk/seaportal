@@ -4,6 +4,7 @@
 	import Settings from './pages/Settings.svelte';
 	import navigationElements from './components/Header/stores/navigationElements';
 	import currentIndex from './components/Header/stores/currentIndex';
+import Pages from './pages/Pages.svelte';
 
 	export let baseUrl: string;
 
@@ -17,6 +18,11 @@
 			label: 'Settings',
 			url: baseUrl + '/settings',
 			page: Settings
+		},
+		{
+			label: 'Pages',
+			url: baseUrl + '/pages',
+			page: Pages
 		}
 	]);
 </script>
