@@ -5,11 +5,11 @@
 /* <Buttons> */
 
 .outlined-button {
-    @apply py-1 px-2 border rounded-md text-sm cursor-pointer
+	@apply py-1 px-2 border rounded-md text-sm cursor-pointer;
 }
 
 .link-button {
-    @apply text-sm cursor-pointer
+	@apply text-sm cursor-pointer;
 }
 
 /* </Buttons> */
@@ -17,39 +17,39 @@
 /* <Header> */
 
 .header-container {
-    @apply border-b
+	@apply border-b;
 }
 
 .header {
-    @apply py-4 flex items-center justify-between
+	@apply py-4 flex items-center justify-between;
 }
 
 .header > div {
-    @apply flex items-center
+	@apply flex items-center;
 }
 
 .header .logo {
-    @apply w-12 h-12 mt-1
+	@apply w-12 h-12 mt-1;
 }
 
 .header .divider {
-    @apply mx-5
+	@apply mx-5;
 }
 
 .header .divider > div {
-    @apply w-[2px] h-8 rotate-12 rounded-full bg-gray-300
+	@apply w-[2px] h-8 rotate-12 rounded-full bg-gray-300;
 }
 
 .client-name {
-    @apply text-xl
+	@apply text-xl;
 }
 
 .header div:last-child > .button {
-    @apply mx-1
+	@apply mx-1;
 }
 
 .header .avatar {
-    @apply ml-3 w-8 h-8 rounded-full
+	@apply ml-3 w-8 h-8 rounded-full;
 }
 
 /* </Header> */
@@ -57,23 +57,23 @@
 /* <Navigation> */
 
 .navigation {
-    @apply flex relative pb-2
+	@apply flex relative pb-2;
 }
 
 .navigation .hover-element {
-    @apply absolute bg-gray-200 rounded -z-10
+	@apply absolute bg-gray-200 rounded -z-10;
 }
 
 .navigation .select-element {
-    @apply absolute bg-black h-[3px] bottom-0 duration-200
+	@apply absolute bg-black h-[3px] bottom-0 duration-200;
 }
 
 .navigation > li {
-    @apply mx-3
+	@apply mx-3;
 }
 
 .navigation > li > div {
-    @apply py-1 cursor-pointer
+	@apply py-1 cursor-pointer;
 }
 
 /* </Navigation> */

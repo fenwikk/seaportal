@@ -1,4 +1,4 @@
-import OutlinedButton from "./OutlinedButton.svelte"
-import LinkButton from "./LinkButton.svelte"
+import OutlinedButton from './OutlinedButton.svelte';
+import LinkButton from './LinkButton.svelte';
 
-export { OutlinedButton, LinkButton }
+export { OutlinedButton, LinkButton };

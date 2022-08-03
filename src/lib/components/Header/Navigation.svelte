@@ -1,10 +1,29 @@
+<script lang="ts" context="module">
+	export const load: Load = ({ params }) => {
+		if (!params.seaportal.startsWith('portal')) {
+			return {
+				status: 404
+			};
+		}
+
+		return {};
+	};
+</script>
+
 <script lang="ts">
+	import { browser } from '$app/env';
+
 	import { goto } from '$app/navigation';
-	import type { NavigationElement } from '.';
+	import type { Load } from '@sveltejs/kit';
+	import currentIndex from './stores/currentIndex';
+	import navigationElements from './stores/navigationElements';
 
-	export let elements: NavigationElement[];
+	const elements = $navigationElements;
 
-	export let selectedIndex: number = 0;
+	if (browser)
+		currentIndex.set(
+			$navigationElements.findIndex((value) => value.url == location?.pathname || '')
+		);
 
 	let hoveredIndex: number = -1;
 	let first = true;
@@ -29,8 +48,8 @@
 	/>
 	<div
 		class="select-element"
-		style="left: {elements[selectedIndex]?.element?.offsetLeft || 0}px;
-			width: {elements[selectedIndex]?.element?.clientWidth || 0}px;"
+		style="left: {elements[$currentIndex]?.element?.offsetLeft || 0}px;
+			width: {elements[$currentIndex]?.element?.clientWidth || 0}px;"
 	/>
 
 	{#each elements as element, i}
@@ -45,7 +64,7 @@
 				}}
 				on:click={() => {
 					goto(element.url);
-					selectedIndex = i;
+					currentIndex.set(i);
 				}}
 			>
 				{element.label}

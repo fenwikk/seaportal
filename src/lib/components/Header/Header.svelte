@@ -3,28 +3,8 @@
 	import Portal from '../../assets/portal.png';
 	import Avatar from '../../assets/Avatar.jpg';
 	import { Navigation, type NavigationElement } from '.';
-	import { OutlinedButton } from "../Buttons"
-	import { browser } from '$app/env';
-import LinkButton from '../Buttons/LinkButton.svelte';
-
-	export let baseUrl;
-
-	const navigationElements: NavigationElement[] = [
-		{
-			label: 'Home',
-			url: baseUrl
-		},
-		{
-			label: 'Settings',
-			url: baseUrl + '/settings'
-		}
-	];
-
-	let startingElementIndex: number = 0;
-	if (browser)
-		startingElementIndex = navigationElements.findIndex(
-			(value) => value.url == location?.pathname || ''
-		);
+	import { OutlinedButton } from '../Buttons';
+	import LinkButton from '../Buttons/LinkButton.svelte';
 </script>
 
 <div class="header-container">
@@ -35,11 +15,9 @@ import LinkButton from '../Buttons/LinkButton.svelte';
 
 				<div class="divider"><div /></div>
 
-				<div class="client-name">
-					Client Name Ltd.
-				</div>
+				<div class="client-name">Client Name Ltd.</div>
 			</div>
-			
+
 			<div>
 				<OutlinedButton>Feedback</OutlinedButton>
 				<LinkButton>Changelog</LinkButton>
@@ -48,6 +26,6 @@ import LinkButton from '../Buttons/LinkButton.svelte';
 			</div>
 		</div>
 
-		<Navigation elements={navigationElements} selectedIndex={startingElementIndex} />
+		<Navigation />
 	</div>
 </div>
