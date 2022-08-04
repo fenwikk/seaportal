@@ -4,7 +4,7 @@
 	import Settings from './pages/Settings.svelte';
 	import navigationElements from './components/Header/stores/navigationElements';
 	import currentIndex from './components/Header/stores/currentIndex';
-import Pages from './pages/Pages.svelte';
+	import Pages from './pages/Pages.svelte';
 
 	export let baseUrl: string;
 
@@ -29,4 +29,6 @@ import Pages from './pages/Pages.svelte';
 
 <Header />
 
-<svelte:component this={$navigationElements[$currentIndex].page} />
+<div class="bg-gray-50">
+	<svelte:component this={$navigationElements[$currentIndex].page} />
+</div>
