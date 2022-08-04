@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Header from './components/Header';
-	import Home from './pages/Home.svelte';
+	import Overview from './pages/Overview.svelte';
 	import Settings from './pages/Settings.svelte';
 	import navigationElements from './components/Header/stores/navigationElements';
 	import currentIndex from './components/Header/stores/currentIndex';
@@ -10,9 +10,9 @@ import Pages from './pages/Pages.svelte';
 
 	navigationElements.set([
 		{
-			label: 'Home',
+			label: 'Overview',
 			url: baseUrl,
-			page: Home
+			page: Overview
 		},
 		{
 			label: 'Settings',
