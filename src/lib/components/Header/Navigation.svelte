@@ -30,9 +30,9 @@
 >
 	<div
 		class="hover-element"
-		style="left: {(elements[hoveredIndex]?.element?.offsetLeft || 0) - 9}px;
+		style="left: {(elements[hoveredIndex]?.element?.offsetLeft || 0) - 12}px;
 			width: {elements[hoveredIndex]?.element?.clientWidth
-			? (elements[hoveredIndex]?.element?.clientWidth || 0) + 18
+			? (elements[hoveredIndex]?.element?.clientWidth || 0) + 24
 			: 0}px;
 			height: {elements[hoveredIndex]?.element?.clientHeight || 0}px;
 			transition-duration: {firstHover ? '0' : '200'}ms;"
