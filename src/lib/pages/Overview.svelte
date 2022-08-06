@@ -1,6 +1,7 @@
 <script>
 	import Box from '$lib/components/Box';
-	import { CircularPercentage, Line } from '../components/Charts';
+	import { CircularPercentage } from '../components/Chart';
+
 	import PageTitle from '../components/PageTitle';
 
 	const now = new Date();
@@ -19,11 +20,10 @@
 		<div class="flex gap-4">
 			<Box class="flex flex-col items-center w-72">
 				<span class="text-lg mb-8">Real Experience Score</span>
-				<CircularPercentage value={44} width={'128px'} />
+				<CircularPercentage value={44} width={"128px"} />
 				<span class="px-3 py-1 border rounded-full mt-8">7 Data Points</span>
 			</Box>
 			<Box class="flex-grow">
-				<Line />
 			</Box>
 		</div>
 	</div>
