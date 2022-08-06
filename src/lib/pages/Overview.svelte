@@ -1,6 +1,6 @@
 <script>
 	import Box from '$lib/components/Box';
-	import { CircularPercentage } from '../components/Chart';
+	import { CircularPercentage, LineOverTime } from '../components/Charts';
 
 	import PageTitle from '../components/PageTitle';
 
@@ -24,6 +24,7 @@
 				<span class="px-3 py-1 border rounded-full mt-8">7 Data Points</span>
 			</Box>
 			<Box class="flex-grow">
+				<Line />
 			</Box>
 		</div>
 	</div>
