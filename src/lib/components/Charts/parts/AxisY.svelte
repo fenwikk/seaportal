@@ -2,88 +2,109 @@
   @component
   Generates an HTML y-axis.
  -->
- <script lang="ts">
+<script lang="ts">
 	import { getContext } from 'svelte';
-  
+
 	const { padding, xRange, yScale } = getContext('LayerCake');
-  
-	export let gridlines = true;
-  
-	export let tickMarks = false;
-  
-	export let formatTick = (d: any) => d;
-  
+
+	export let gridlines: boolean = true;
+
+	export let tickMarks: boolean = false;
+
+	export let baseline: boolean = false;
+
+	export let formatTick: (d: any) => any = (d) => d;
+
 	export let ticks: number | Array<any> | Function = 4;
-  
-	export let xTick = 0;
-  
-	export let yTick = 0;
-  
-	export let dxTick = 0;
-  
-	export let dyTick = -4;
-  
-	export let textAnchor = 'start';
-  
+
+	export let xTick: number = -4;
+
+	export let yTick: number = -1;
+
 	$: isBandwidth = typeof $yScale.bandwidth === 'function';
-  
-	$: tickVals = Array.isArray(ticks) ? ticks :
-	  isBandwidth ?
-		$yScale.domain() :
-		typeof ticks === 'function' ?
-		  ticks($yScale.ticks()) :
-			$yScale.ticks(ticks);
-  </script>
-  
-  <g class='axis y-axis' transform='translate({-$padding.left}, 0)'>
-	{#each tickVals as tick (tick)}
-	  <g class='tick tick-{tick}' transform='translate({$xRange[0] + (isBandwidth ? $padding.left : 0)}, {$yScale(tick)})'>
-		{#if gridlines !== false}
-		  <line
-			class="gridline"
-			x2='100%'
-			y1={yTick + (isBandwidth ? ($yScale.bandwidth() / 2) : 0)}
-			y2={yTick + (isBandwidth ? ($yScale.bandwidth() / 2) : 0)}
-		  ></line>
-		{/if}
-		{#if tickMarks === true}
-		  <line
-			class='tick-mark'
-			x1='0'
-			x2='{isBandwidth ? -6 : 6}'
-			y1={yTick + (isBandwidth ? ($yScale.bandwidth() / 2) : 0)}
-			y2={yTick + (isBandwidth ? ($yScale.bandwidth() / 2) : 0)}
-		  ></line>
-		{/if}
-		<text
-		  x='{xTick}'
-		  y='{yTick + (isBandwidth ? $yScale.bandwidth() / 2 : 0)}'
-		  dx='{isBandwidth ? -9 : dxTick}'
-		  dy='{isBandwidth ? 4 : dyTick}'
-		  style="text-anchor:{isBandwidth ? 'end' : textAnchor};"
-		>{formatTick(tick)}</text>
-	  </g>
+
+	$: tickVals = Array.isArray(ticks)
+		? ticks
+		: isBandwidth
+		? $yScale.domain()
+		: typeof ticks === 'function'
+		? ticks($yScale.ticks())
+		: $yScale.ticks(ticks);
+</script>
+
+<div class="axis y-axis" style="transform:translate(-{$padding.left}px, 0)">
+	{#each tickVals as tick, i (tick)}
+		<div
+			class="tick tick-{i}"
+			style="top:{$yScale(tick) + (isBandwidth ? $yScale.bandwidth() / 2 : 0)}%;left:{$xRange[0]}%;"
+		>
+			{#if gridlines !== false}
+				<div
+					class="gridline"
+					style="top:0;left:{isBandwidth ? $padding.left : 0}px;right:-{$padding.left +
+						$padding.right}px;"
+				/>
+			{/if}
+			{#if baseline !== false && i === 0}
+				<div
+					class="gridline baseline"
+					style="top:0;left:{isBandwidth ? $padding.left : 0};right:-{$padding.left +
+						$padding.right}px;"
+				/>
+			{/if}
+			{#if tickMarks === true}
+				<div
+					class="tick-mark"
+					style="top:0;left:{isBandwidth ? $padding.left - 6 : 0}px;width:6px;"
+				/>
+			{/if}
+			<div
+				class="text"
+				style="
+            top:{yTick}px;
+            left:{isBandwidth ? $padding.left + xTick - 4 : 0}px;
+            transform: translate({isBandwidth ? '-100%' : 0}, {isBandwidth
+					? -50 - Math.floor($yScale.bandwidth() / -2)
+					: '-100'}%);
+          "
+			>
+				{formatTick(tick)}
+			</div>
+		</div>
 	{/each}
-  </g>
-  
-  <style>
+</div>
+
+<style>
+	.axis,
+	.tick,
+	.tick-mark,
+	.gridline,
+	.baseline,
+	.text {
+		position: absolute;
+	}
+	.axis {
+		width: 100%;
+		height: 100%;
+	}
 	.tick {
-	  font-size: .725em;
-	  font-weight: 200;
+		font-size: 12px;
+		width: 100%;
+		font-weight: 100;
 	}
-  
-	.tick line {
-	  stroke: #aaa;
+
+	.gridline {
+		border-top: 1px dashed #aaa;
 	}
-	.tick .gridline {
-	  stroke-dasharray: 2;
+	.tick-mark {
+		border-top: 1px solid #aaa;
 	}
-  
-	.tick text {
-	  fill: #666;
+
+	.baseline.gridline {
+		border-top-style: solid;
 	}
-  
-	.tick.tick-0 line {
-	  stroke-dasharray: 0;
+
+	.tick .text {
+		color: #666;
 	}
-  </style>
+</style>
