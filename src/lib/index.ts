@@ -1,3 +1,4 @@
-import Portal from './Portal.svelte';
+import SeaPortal from './SeaPortal.svelte';
+export * from './module';
 
-export { Portal };
+export { SeaPortal };

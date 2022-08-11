@@ -1,16 +1,9 @@
 <script lang="ts" context="module">
-	import Portal from '$lib/Portal.svelte';
-	import type { Load } from '@sveltejs/kit';
+	import { LoadFunc, SeaPortal } from '$lib';
+import { TestPlugin } from '$lib/test/plugin';
 
-	export const load: Load = ({ params }) => {
-		if (!params.seaportal.startsWith('portal')) {
-			return {
-				status: 404
-			};
-		}
-
-		return {};
-	};
+	export const router = false;
+	export const load = LoadFunc;
 </script>
 
-<Portal baseUrl={'/portal'} />
+<SeaPortal />

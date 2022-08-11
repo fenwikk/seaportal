@@ -20,11 +20,10 @@
 		<div class="flex gap-4">
 			<Box class="flex flex-col items-center w-72">
 				<span class="text-lg mb-8">Real Experience Score</span>
-				<CircularPercentage value={44} width={"128px"} />
+				<CircularPercentage value={44} width={'128px'} />
 				<span class="px-3 py-1 border rounded-full mt-8">7 Data Points</span>
 			</Box>
-			<Box class="flex-grow">
-			</Box>
+			<Box class="flex-grow" />
 		</div>
 	</div>
 </div>
