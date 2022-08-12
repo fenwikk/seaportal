@@ -1,2 +1,2 @@
 <div>Sub!</div>
-<a href="/sub">Go to Home</a>
+<a href="/">Go to Home</a>
