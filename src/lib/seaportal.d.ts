@@ -3,8 +3,7 @@ import type { SvelteComponent } from 'svelte';
 
 type SeaPortalOptions = {
 	baseUrl: string;
-	pages: Page[];
-	plugins?: Plugin[];
+	themes: Themes
 };
 
 type Page = {
@@ -13,9 +12,11 @@ type Page = {
 	load?: Load;
 };
 
-type Plugin = () => Partial<PluginOutput>;
+type Themes = {
+	[id: string]: Theme
+}
 
-type PluginOutput = {
-	pages: Page[];
-	plugins: Plugins[];
-};
+type Theme = {
+	id: string
+	pages: Page[]
+}

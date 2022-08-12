@@ -5,10 +5,12 @@ import currentPage from './stores/currentPage';
 import options from './stores/options';
 
 export const LoadFunc: Load = ({ params }) => {
-	const pages = get(options).pages;
+	const theme = get(options).themes["k"];
 	let pageFound = false;
 
-	pages.map((value) => {
+	console.log(theme)
+
+	theme.pages.map((value) => {
 		if ((value.slug.startsWith('/') ? value.slug.substring(1) : value.slug) == params.seaportal) {
 			pageFound = true;
 			currentPage.set(value);

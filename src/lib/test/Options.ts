@@ -1,10 +1,11 @@
 import type { SeaPortalOptions } from '$lib/seaportal';
-import { TestPlugin } from './plugin';
+import k from './themes/k';
 
 const Options: SeaPortalOptions = {
 	baseUrl: '/portal',
-	pages: [],
-	plugins: [TestPlugin]
+	themes: {
+		"k": k
+	}
 };
 
 export default Options;
