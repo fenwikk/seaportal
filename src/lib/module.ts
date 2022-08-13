@@ -8,8 +8,6 @@ export const LoadFunc: Load = ({ params }) => {
 	const theme = get(options).themes["k"];
 	let pageFound = false;
 
-	console.log(theme)
-
 	theme.pages.map((value) => {
 		if ((value.slug.startsWith('/') ? value.slug.substring(1) : value.slug) == params.seaportal) {
 			pageFound = true;
